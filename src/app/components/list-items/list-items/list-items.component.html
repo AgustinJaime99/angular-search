@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <form class="form-inline">
+
+                <div class="form-group mb-2">
+                    <input type="text" class="form-control mt-3" [(ngModel)]="q" id="search" name="search"
+                        placeholder="Search">
+                    <button type="submit" class="btn btn-dark btn-lg btn-block mb-2 mt-3" (click)="onSubmit(q)">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg">
+            <select [(ngModel)]="selectedBrand" (change)="valueSelected()" class="form-select form-select  mt-3"
+                aria-label=".form-select-lg example" aria-placeholder="Choose a category">
+                <option value="science">Science</option>
+                <option value="education">Education</option>
+                <option value="people">People</option>
+                <option value="feelings">Feelings</option>
+                <option value="computer">Computer</option>
+                <option value="buildings">Buildings</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mr-3 mb-5">
+        <div class="card mt-3 " style="width: 18rem; margin-left: 20px; margin-top: 20px;"
+            *ngFor="let result of results?.hits">
+            <img class="card-img-top mt-3" src="{{result.previewURL}}" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">{{result.tags}}</p>
+            </div>
+            <button class="btn btn-info mb-3" [routerLink]="['/detail', result.id]">Detail</button>
+        </div>
+    </div>
+</div>

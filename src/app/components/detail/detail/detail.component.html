@@ -1,0 +1,10 @@
+<div class="card mb-3 mt-4" *ngIf="resp.hits[0]">
+    <img src="{{resp.hits[0].largeImageURL}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Tags: {{resp.hits[0].tags}}</li>
+            <li class="list-group-item">Likes: {{resp.hits[0].likes}}</li>
+            <li class="list-group-item">Views: {{resp.hits[0].views}}</li>
+        </ul>
+    </div>
+</div>
